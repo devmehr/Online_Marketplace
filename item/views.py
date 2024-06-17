@@ -1,9 +1,36 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import NewItemForm, EditItemForm
-from .models import Item
+from .models import Catagory, Item
+
+
+def items(request):
+
+    query = request.GET.get('query', '')
+    catagory_id = request.GET.get('catagory', 0)
+    catagories = Catagory.objects.all()
+
+    items = Item.objects.filter(is_sold=False)
+
+
+    if catagory_id:
+        items = items.filter(catagory_id=catagory_id)
+
+
+    if query:
+        items = items.filter(Q(name__icontains=query) | Q(description__icontains=query)) 
+
+    return render(request, 'item/items.html', {
+        'items': items,
+        'query': query,
+        'catagories': catagories,
+        'catagory_id': int(catagory_id)
+    })
+
+
 
 def detail(request, pk):
     item = get_object_or_404(Item, pk=pk)
