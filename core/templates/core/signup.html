@@ -4,48 +4,52 @@
 
 {% block content  %}
 
-<div class="w-1/2 my-6 mx-auto bg-gray-100 rounded-xl p-6">
-    <h1 class="mb-6 text-3xl">Sign up</h1>
 
 
-    <form action="." method="post">
-        {% csrf_token %}
+<div class="form-s">
+    <div class="container">
 
-        
-        <div class="mb-3">
-            <label class="inline_block mb-2">Username</label><br>
-            {{ form.username }}
-        </div>
+        <div class="row justify-content-center m-6">
+          <div class="col-md-5 form-body">
+            <h1 class=" form-text">Sign up</h1>
+                <form action="." method="post">
+                    {% csrf_token %}
 
-          
-        <div class="mb-3">
-            <label class="inline_block mb-2">Email</label><br>
-            {{ form.email }}
-        </div>
+                    
+                    <div class="mb-3">
+                        {{ form.username }}
+                    </div>
 
-        <div class="mb-3">
-            <label class="inline_block mb-2">Password</label><br>
-            {{ form.password1 }}
-        </div>
+                    
+                    <div class="mb-3">
+                        {{ form.email }}
+                    </div>
 
-        <div class="mb-3">
-            <label class="inline_block mb-2">Confirm Password</label><br>
-            {{ form.password2 }}
-        </div>
+                    <div class="mb-3">
+                        {{ form.password1 }}
+                    </div>
 
-        {% if form.errors or form.non_field_errors %}
-            <div class="mb-3 p-6 bg-red-100 rounded-xl">
-                {% for field in form %}
-                    {{ field.errors }}
-                {% endfor %}    
+                    <div class="mb-3">
+                        {{ form.password2 }}
+                    </div>
 
-                {{ form.non_field_errors }}
+                    {% if form.errors or form.non_field_errors %}
+                        <div class="mb-3 p-3 bg-danger text-white rounded">
+                            {% for field in form %}
+                                {{ field.errors }}
+                            {% endfor %}    
+
+                            {{ form.non_field_errors }}
+                        </div>
+                    {% endif %}
+
+                    <p class="form-p">Already signup? <a href="{% url 'core:login' %}" class="form-l"> Login!</a></p>
+                    <button type="submit" class="form-btn">Submit</button>
+                </form>
             </div>
-        {% endif %}
-
-        <button class="py-4 px-8 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Submit</button>
-    </form>
-
+        </div>
+    </div>
 </div>
+
 
 {% endblock %}
