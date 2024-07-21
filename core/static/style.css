@@ -2,7 +2,9 @@
     font-family: kostania;
     src: url(./cinzel.ttf);
 }
-
+body{
+    background-color: #F8F9FA;
+}
 .navbar{
     background-color: #fff;
     height: 55px;
@@ -441,15 +443,6 @@ ul{
     background-color: #fff;
     border-radius: 18px;
 }
-.pro-p{
-
-}
-.pro-p-p{
-
-}
-.pro-s{
-
-}
 .pro-d{
     padding-top: 50px;
     /* padding-bottom: 10px; */
@@ -537,6 +530,7 @@ ul{
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 0.5rem;
     border: 1px solid #1a8dbb57;
 }
@@ -556,6 +550,7 @@ ul{
     text-decoration: none;
     font-size: 14px;
     color: #033a50;
+    margin-bottom: 0px;
 }
 .con-bg{
     padding-top: 50px;
@@ -584,7 +579,7 @@ ul{
     padding: 10px;
     width: 90%;
     margin-left: 5%;
-    margin-top: 2px !important;
+    margin-top: 9px !important;
     border-radius: 18px;
     background-color: #ffffff;
     text-decoration: none;
@@ -593,4 +588,98 @@ ul{
 }
 .con-br{
     margin-bottom: 11px;
+}
+
+.msg-div{
+    background: url(./bg-c.png);
+}
+.msg-divv{
+    padding: 60px 15px;
+    backdrop-filter: blur(39px);
+}
+.chat{
+    background-color: #f8f9fa8f;
+    backdrop-filter: blur(34px);
+    margin: 30px auto;
+    border: 1px solid #ffffff57;
+    border-radius: 23px;
+    padding: 1rem;
+}
+.chf{
+    color: white !important;
+}
+.send-btn{
+    border: none;
+    height: 44px;
+    width: 44px;
+    color: white;
+    background-color: #6A0C46;
+    border-radius: 50%;
+    border: 1px solid #6A0C46;
+    margin-bottom: 0px;
+    padding-right: 6px;
+    margin-left: 1%;
+}
+.send-btn:hover{
+    background-color: #6a0c46c4;
+    border: 1px solid #6a0c46b4;
+}
+.send-btn i{
+    font-size: 18px;
+}
+.cus-con-send{
+    height: 40px;
+    width: 82%;
+    border-radius: 33px;
+    outline: none;
+    padding: 1.5rem;
+    background-color: #f0e7f0;
+    border: 1px solid #D8C6D8;
+    margin-top: 20px;
+}
+.cus-con-send:focus{
+    background-color: #D8C6D8;
+    border: 1px solid #da20da;
+}
+.msg{
+    background-color: #fff !important;
+    border: 1px solid #da20daa8;
+    border-radius: 30px;
+    margin-bottom: 4px;
+    width: 70%;
+    color: black !important;
+}
+.msgg{        
+    background-color: #e987a81e !important;
+    border: 1px solid #da20da;
+    border-radius: 30px;
+    margin-bottom: 8px;
+    width: 70%;
+    margin-left: auto;
+}
+.msg-p{
+   font-size: 14px;
+   font-weight: bold;
+   text-align: right;
+   margin-bottom: 8px;
+   color: rgba(0, 0, 0, 0.74);
+}
+.msg-c{
+    font-size: 18px;
+    color: black;
+}
+.msg-s{
+    font-size: 24px;
+    color: #01151f;
+}
+.msg-b{
+    padding: 1rem;
+    padding-top: 9px;
+    padding-bottom: 0px;
+}
+@media (max-width: 767px) {
+    .head-font{
+        font-size: 30px;
+        font-weight: bold;
+    }
 }

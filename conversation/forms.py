@@ -7,7 +7,9 @@ class ConversationMessageForm(forms.ModelForm):
         model = ConversationMessage
         fields = ('content',)
         widgets = {
-            'content': forms.Textarea(attrs={
-                'class': 'w-full py-4 px-6 rounded-xl border'
+            'content': forms.TextInput(attrs={
+                'class': 'cus-con-send',
+                'type': 'text',
+                'placeholder': 'Message'
             })
         }
