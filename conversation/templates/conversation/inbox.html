@@ -4,27 +4,29 @@
 
 {% block content %}
 
-<h1 class="mb-6 text-3xl">Inbox</h1>
 
-<div class="space-y-6">
-
-    {% for conversation in conversations %}
-        <a href="{% url 'conversation:detail' conversation.id %}">
-            <div class="p-6 flex bg-gray-100 rounded-xl">
-                <div class="pr-6">
-                    <img src="{{ conversation.item.image.url }}" class="w-20 rounded-xl">
+<div class="inbox-div">
+    <h1 class="head-font">Inbox</h1>
+    <div class="con-bg container col-md-6">
+        {% for conversation in conversations %}
+            <a href="{% url 'conversation:detail' conversation.id %}" class="con-ah">
+                <div class="con-card">
+                    <div class="conimage">
+                        <img src="{{ conversation.item.image.url }}" class="con-image image-fluid">
+                    </div>
+                    <div class="concon">
+                        {% for member in conversation.members.all %}
+                            {% if member != request.user %}
+                                <p class="con-p"><strong class="con-a">{{ member.username }}</strong> <br class="con-br"> {{ conversation.modified_at }}</p>
+                                <p class="con-pp">{{ conversation.item.name }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
-                <div>
-                    {% for member in conversation.members.all %}
-                        {% if member != request.user %}
-                            <p class="mb-4"><strong>{{ member.username }}</strong> | {{ conversation.modified_at }}</p>
-                            <p>{{ conversation.item.name }}</p>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-        </a>
-    {% endfor %}
+            </a>
+        {% endfor %}
+    </div>
 </div>
+
 
 {% endblock %}
