@@ -4,30 +4,36 @@
 
 {% block content %}
 
-<h1 class="mb-6 text-3xl">New conversation</h1>
 
-<form method="post" action=".">
 
-    {% csrf_token %}
     
-    
-    <div class="space-y-4">
-        {{ form.as_p }}
-    </div>
-    
-    
-    {% if form.errors or form.non_field_errors %}
-        <div class="mb-3 p-6 bg-red-100 rounded-xl">
-            {% for field in form %}
-                {{ field.errors }}
-            {% endfor %}    
-        
-            {{ form.non_field_errors }}
-        
+ 
+
+<div class="msg-div">
+    <div class="msg-divvv">
+        <h1 class="head-font chf">New conversation</h1>
+        <div class="chat col-md-6">      
+            <form action="." method="post" class="send-form">
+                {% csrf_token %}      
+                {% for field in form %}
+                    <div class="form-group">
+                        {{ field }}
+                        {% if form.errors or form.non_field_errors %}
+                            <div class="mb-3 p-3 bg-danger text-white rounded">
+                                {% for field in form %}
+                                {{ field.errors }}
+                                {% endfor %}                                
+                                {{ form.non_field_errors }}                         
+                            </div>
+                            {% endif %}
+                        <button class="send-btn"><i class="bi bi-send-fill"></i></button>
+                    </div>
+                {% endfor %}
+            </form>
             
-        </div>
-        {% endif %}
-        <button class="py-4 px-8 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white mt-6" >Send</button>
-</form>
+        </div>    
+    </div>
+</div>
+
 
 {% endblock %}

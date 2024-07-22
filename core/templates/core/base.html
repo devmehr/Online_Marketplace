@@ -18,23 +18,31 @@
 
 
     <nav class="navbar">
-        <!-- <div class="container"> -->
-            <div class="nav-logo col-md-2">
-                <a href="/">Haantlay</a>
-            </div>
-            <div class="nav-links col-md-10">
-                <a href="{% url 'item:new' %}" class="nav-items">New Item</a>
-                <a href="{% url 'item:items' %}" class="nav-items">Browse</a>
-                <a href="{% url 'conversation:inbox' %}" class="nav-items">Inbox</a>
-                <a href="{% url 'dashboard:index' %}" class="nav-items">Dashboard</a>
-                <!-- <a href="{% url 'core:signup' %}" class="nav-items">Sign up</a>
-                <a href="{% url 'core:login' %}" class="nav-items">
-                     Log in
-                </a> -->
-                <a href="{% url 'core:login' %}" class="login-icon"><i class="bi bi-person-plus"></i></a>
-            </div>
+        <div id="menu-btn">
+            <i class="bi bi-list"></i>
+        </div>
+        <div class="nav-logo col-md-2">
+            <a href="/"><img src="../../static/logo-h.svg" class="logo-img"></a>
+        </div>
+        <div class="nav-links col-md-10" id="pc-nav">
+            <a href="{% url 'item:new' %}">New Item</a>
+            <a href="{% url 'item:items' %}">Browse</a>
+            <a href="{% url 'conversation:inbox' %}">Inbox</a>
+            <a href="{% url 'dashboard:index' %}">Dashboard</a>
+            <a href="{% url 'core:login' %}" class="login-icon"><i class="bi bi-person-plus"></i></a>
+        </div>
+        <div id="mobile-nav">
+            <a href="{% url 'core:login' %}" class="login-icon"><i class="bi bi-person-plus"></i></a>
         </div>
       </nav>
+      <div id="m-nav">        
+          <div id="mobile-nav-links">
+            <a href="{% url 'item:new' %}">New Item</a>
+            <a href="{% url 'item:items' %}">Browse</a>
+            <a href="{% url 'conversation:inbox' %}">Inbox</a>
+            <a href="{% url 'dashboard:index' %}">Dashboard</a>
+        </div>
+      </div>
       
     <div class="px-6 py-6">
         {% block content %}
@@ -44,18 +52,27 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <!-- <div class="col-md-12 f-icons">
-                    <p>Follow us</p>
-                    <a href="{% url 'core:login' %}" class="footer-icon"><i class="bi bi-linkedin"></i></a>
-                    <a href="{% url 'core:login' %}" class="footer-icon"><i class="bi bi-instagram"></i></a>
-                    <a href="{% url 'core:login' %}" class="footer-icon"><i class="bi bi-facebook"></i></a>
-                    <a href="{% url 'core:login' %}" class="footer-icon"><i class="bi bi-whatsapp"></i></a>
-                </div> -->
                 <div class="col-md-12 copyright">
                     <p>Copyright 2024 Haantlay. All right reserved!</p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', function() {
+        var nav = document.getElementById('m-nav');
+        if (nav.style.display === 'block') {
+            nav.style.display = 'none';
+        } else {
+            nav.style.display = 'block';
+        }
+        });
+        function hideMenu() {
+            var nav = document.getElementById('m-nav');
+            nav.style.display = 'none';
+        }
+        window.addEventListener('scroll', hideMenu);
+    </script>
 </body>
 </html>
