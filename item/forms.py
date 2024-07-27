@@ -9,20 +9,25 @@ class NewItemForm(forms.ModelForm):
 
         widgets = {
             'catagory': forms.Select(attrs={
-                'class': 'w-full py-4 px-6 rounded-xl border'
+                'class': 'cus-classs',
             }),
             'name': forms.TextInput(attrs={
-                'class': 'w-full py-4 px-6 rounded-xl border'
+
+                'class': 'cus-classs'
             }),
             'description': forms.Textarea(attrs={
-                'class': 'w-full py-4 px-6 rounded-xl border'
+
+                'class': 'cus-classs'
             }),
             'price': forms.TextInput(attrs={
-                'class': 'w-full py-4 px-6 rounded-xl border'
+
+                'class': 'cus-classs'
             }),
             'image': forms.FileInput(attrs={
-                'class': 'w-full py-4 px-6 rounded-xl border'
+
+                'class': 'cus-classss'
             })
+            
         }
 
 
@@ -33,15 +38,15 @@ class EditItemForm(forms.ModelForm):
 
         widgets = {
             'name': forms.TextInput(attrs={
-                'class': 'w-full py-4 px-6 rounded-xl border'
+                'class': 'cus-classs'
             }),
             'description': forms.Textarea(attrs={
-                'class': 'w-full py-4 px-6 rounded-xl border'
+                'class': 'cus-classs'
             }),
             'price': forms.TextInput(attrs={
-                'class': 'w-full py-4 px-6 rounded-xl border'
+                'class': 'cus-classs'
             }),
             'image': forms.FileInput(attrs={
-                'class': 'w-full py-4 px-6 rounded-xl border'
+                'class': 'cus-classss'
             })
         }

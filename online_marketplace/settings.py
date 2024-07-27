@@ -44,6 +44,15 @@ INSTALLED_APPS = [
     'core',
     'dashboard',
     'item',
+    'tailwind',
+    'theme',
+    'bootstrap5',
+    'django_bootstrap_icons'
+]
+
+TAILWIND_APP_NAME = 'theme'
+INTERNAL_IPS = [
+    "127.0.0.1",
 ]
 
 MIDDLEWARE = [
