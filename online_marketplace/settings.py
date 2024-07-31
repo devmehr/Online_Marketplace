@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'core',
     'dashboard',
     'item',
-    'tailwind',
     'theme',
     'bootstrap5',
     'django_bootstrap_icons'
