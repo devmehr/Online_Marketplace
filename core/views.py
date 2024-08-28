@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from item.models import Catagory, Item
 
 
-from .forms import SignupForm
+from core.forms import SignupForm
 
 def index(request):
     items = Item.objects.filter(is_sold=False)[0:6]

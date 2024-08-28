@@ -3,8 +3,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 from item.models import Item
 
-from .forms import ConversationMessageForm
-from .models import Conversation
+from conversation.forms import ConversationMessageForm
+from conversation.models import Conversation
 
 
 @login_required
